@@ -15,5 +15,5 @@ $payment->payer = array(
 $payment->save();
 
 //echo "pay".$payment->status;
-return json_encode($payment);
+echo json_encode($payment);
 ?>
