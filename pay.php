@@ -14,5 +14,5 @@ $payment->payer = array(
 
 $payment->save();
 
-echo "pay".$payment->status;
+var_dump($payment);
 ?>
