@@ -14,5 +14,5 @@ $payment->payer = array(
 
 $payment->save();
 
-var_dump($payment);
+print_r($payment);
 ?>
