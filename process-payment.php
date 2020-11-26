@@ -7,13 +7,13 @@ $payment_method_id = $_REQUEST["payment_method_id"];
 $installments = $_REQUEST["installments"];
 $issuer_id = $_REQUEST["issuer_id"];
 
-
+$total = floatval($_POST['unit'] * $_POST['price']);
 
 $payment = new MercadoPago\Payment();
-$payment->transaction_amount = 182;
+$payment->transaction_amount = $total;
 $payment->token = $token;
 
-$payment->description = "Practical Wool Watch";
+$payment->description = $_POST['title'];
 
 $payment->installments = $installments;
 $payment->payment_method_id = $payment_method_id;
