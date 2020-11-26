@@ -8,6 +8,7 @@ $item = new MercadoPago\Item();
 $item->title = 'Producto 1';
 $item->quantity = 1;
 $item->unit_price = 75.56;
+$item->price = 50;
 $preference->items = array($item);
 $preference->save();
 //echo json_encode($preference->items);
@@ -139,6 +140,11 @@ $preference->save();
                                         <h3 >
                                             <?php echo "$" . $_POST['unit'] ?>
                                         </h3>
+                                        <script
+                                            src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                            data-preference-id="<?php echo $preference->id; ?>">
+                                        </script>
+
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +162,3 @@ $preference->save();
             </div>
         </div>
 
-<script
-    src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
-    data-preference-id="<?php echo $preference->id; ?>">
-</script>
