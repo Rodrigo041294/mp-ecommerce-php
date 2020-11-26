@@ -112,9 +112,6 @@
                             <div class="as-producttile-info" style="float:left;min-height: 168px;">
                                 <div class="as-producttile-titlepricewraper" style="min-height: 128px;">
                                     <form action="process-payment.php" method="POST">
-                                        <input type="hidden" name="title" value="<?php echo $_POST['title'] ?>">
-                                        <input type="hidden" name="price" value="<?php echo $_POST['price'] ?>">
-                                        <input type="hidden" name="unit" value="<?php echo $_POST['unit'] ?>">
                                         <div class="as-producttile-title">
                                             <h3 class="as-producttile-name">
                                                 <p class="as-producttile-tilelink">
@@ -124,15 +121,15 @@
                                             </h3>
                                         </div>
                                         <h3 >
-                                            Cantidad: <?php echo $_POST['unit'] ?>
+                                            <?php echo $_POST['price'] ?>
                                         </h3>
                                         <h3 >
-                                            Precio: <?php echo "$" . $_POST['price'] ?>
+                                            <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                         <script
                                             src="https://www.mercadopago.com.mx/integrations/v1/web-tokenize-checkout.js"
                                             data-public-key="TEST-24a4cab6-6035-4090-9494-9e4ff21e0486"
-                                            data-transaction-amount="<?php echo $_POST['price'] ?>">
+                                            data-transaction-amount="100.00">
                                         </script>
                                     </form>
 

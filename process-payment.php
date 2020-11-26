@@ -10,9 +10,10 @@ $issuer_id = $_REQUEST["issuer_id"];
 
 
 $payment = new MercadoPago\Payment();
+$payment->transaction_amount = 182;
 $payment->token = $token;
 
-$payment->description = $_POST['title'];
+$payment->description = "Practical Wool Watch";
 
 $payment->installments = $installments;
 $payment->payment_method_id = $payment_method_id;
