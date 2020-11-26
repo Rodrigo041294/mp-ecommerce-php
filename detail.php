@@ -5,10 +5,9 @@ MercadoPago\SDK::setAccessToken('TEST-4818673285371487-112515-961f0fd15bcbb99e01
 $preference = new MercadoPago\Preference();
 
 $item = new MercadoPago\Item();
-$item->title = 'Producto 1';
+$item->title = $_POST['title'];
 $item->quantity = 1;
-$item->unit_price = 75.56;
-$item->price = 50;
+$item->unit_price = $_POST['price'];
 $preference->items = array($item);
 $preference->save();
 //echo json_encode($preference->items);
@@ -161,4 +160,3 @@ $preference->save();
                 </div>
             </div>
         </div>
-
