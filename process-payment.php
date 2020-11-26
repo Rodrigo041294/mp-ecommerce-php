@@ -11,11 +11,21 @@ $preference = new MercadoPago\Preference();
 
 $item = new MercadoPago\Item();
 $item->id = "1234";
-$item->description = "Compra de pruebas";
+$item->description = "​Dispositivo móvil de Tienda e-commerce";
 $item->title = htmlspecialchars( $_POST["title"] );
 $item->quantity = intval( $_POST["unit"] );
 $item->unit_price = floatval( $_POST["price"] );
 $preference->items = array( $item );
+$preference->payment_methods = array(
+    'excluded_payment_methods' => array(
+        array( 'id' => 'amex' ),
+    ),
+    "excluded_payment_types"   => array(
+        array( 'id' => 'atm' ),
+    ),
+    'installments'             => 6,
+
+);
 
 
 
