@@ -7,6 +7,18 @@ $payment_method_id = $_REQUEST["payment_method_id"];
 $installments = $_REQUEST["installments"];
 $issuer_id = $_REQUEST["issuer_id"];
 
+$preference = new MercadoPago\Preference();
+
+$item = new MercadoPago\Item();
+$item->id = "1234";
+$item->description = "Compra de pruebas";
+$item->title = htmlspecialchars( $_POST["title"] );
+$item->quantity = intval( $_POST["unit"] );
+$item->unit_price = floatval( $_POST["price"] );
+$preference->items = array( $item );
+
+
+
 $total = floatval($_POST['unit'] * $_POST['price']);
 
 $payment = new MercadoPago\Payment();
