@@ -34,11 +34,13 @@ $payment->payer = array(
     "email" => "cheyenne@gmail.com"
 );
 $payment->save();
-var_dump($payment);
+//var_dump($payment);
 // Guarda y postea el pago
 //
 //...
 // Imprime el estado del pago
 
 //...*/
+echo '<script>alert("pagado con exito");</script>';
+header("Location: https://rodrigo041294-mp-commerce-php.herokuapp.com/");
 ?>
