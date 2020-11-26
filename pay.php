@@ -2,18 +2,18 @@
 require_once 'vendor/autoload.php';
 MercadoPago\SDK::setAccessToken('TEST-4818673285371487-112515-961f0fd15bcbb99e0182b0409c088ea5-176213646');
 
-$payment = new MercadoPago\Payment();
-$payment->transaction_amount = 141;
-$payment->token = "YOUR_CARD_TOKEN";
-$payment->description = "Ergonomic Silk Shirt";
-$payment->installments = 1;
-$payment->payment_method_id = "visa";
-$payment->payer = array(
-    "email" => "larue.nienow@email.com"
-);
+$preference = new MercadoPago\Preference();
 
-$payment->save();
-
-//echo "pay".$payment->status;
-echo json_encode($payment);
+$item = new MercadoPago\Item();
+$item->title = 'Producto 1';
+$item->quantity = 1;
+$item->unit_price = 75.56;
+$preference->items = array($item);
+$preference->save();
+//echo json_encode($preference->items);
 ?>
+
+<script
+    src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+    data-preference-id="<?php echo $preference->id; ?>">
+</script>
